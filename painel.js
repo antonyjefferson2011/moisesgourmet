@@ -4,30 +4,10 @@ const $ = s => document.querySelector(s);
 const ST = { novo: "Novo", andamento: "Em andamento", concluido: "Concluído", cancelado: "Cancelado" };
 let products = [], orders = [], unsubs = [], editId = null, settings = { ...DEFAULT_SETTINGS };
 
-/* ---------- Autenticação ---------- */
-const lmsg = (t, ok) => { $("#lMsg").textContent = t; $("#lMsg").className = "msg " + (t ? (ok ? "ok" : "bad") : ""); };
-if (!configured) { lmsg("Firebase não configurado. Edite firebase-config.js.", false); $("#lBtn").disabled = true; }
-else au.onAuthStateChanged(auth, async user => {
-  unsubs.forEach(u => u()); unsubs = [];
-  if (!user) { $("#app").hidden = true; $("#login").hidden = false; return; }
-  try {
-    const a = await getDoc(doc(db, "admins", user.uid));
-    if (!a.exists()) { lmsg("Esta conta não é administradora. UID: " + user.uid, false); await au.signOut(auth); return; }
-  } catch (e) { lmsg(fbError(e), false); await au.signOut(auth); return; }
-  $("#login").hidden = true; $("#app").hidden = false; start();
-});
-
-$("#loginForm").addEventListener("submit", async e => {
-  e.preventDefault(); lmsg("");
-  const em = (window.APP_CONFIG.adminEmail || "").trim(), pw = $("#lPass").value;
-  if (!em || em.startsWith("SEU-")) return lmsg("E-mail do administrador não configurado (adminEmail).", false);
-  if (!pw) return lmsg("Informe a senha.", false);
-  $("#lBtn").disabled = true; $("#lBtn").textContent = "Entrando…";
-  try { await au.signInWithEmailAndPassword(auth, em, pw); }
-  catch (err) { lmsg(fbError(err), false); }
-  $("#lBtn").disabled = false; $("#lBtn").textContent = "Entrar";
-});
-$("#logout").onclick = () => au.signOut(auth);
+/* ---------- Acesso direto (sem login) ---------- */
+$("#login").hidden = true; $("#logout").hidden = true;
+if (!configured) { $("#app").hidden = false; document.querySelector(".panel").innerHTML = '<p class="state err">Firebase não configurado. Edite firebase-config.js.</p>'; }
+else { $("#app").hidden = false; start(); }
 
 /* ---------- Abas ---------- */
 $("#tabs").addEventListener("click", e => {
