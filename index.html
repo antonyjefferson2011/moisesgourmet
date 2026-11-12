@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moisés Gourmet — Bolos de pote e bombons de travessa</title>
+<meta name="description" content="Bolos de pote e bombons de travessa artesanais. Faça seu pedido pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="firebase-config.js"></script>
+</head>
+<body>
+<header class="hdr">
+  <a class="logo" href="#inicio"><span class="logo-mark">M</span><span data-t="companyName">Moisés Gourmet</span></a>
+  <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  <nav id="nav">
+    <a href="#inicio">Início</a><a href="#cardapio">Cardápio</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+  </nav>
+  <button class="btn gold" id="openCart">Pedidos <span class="badge" id="cartCount">0</span></button>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">Confeitaria artesanal</p>
+    <h1 data-t="heroTitle"></h1>
+    <p class="lead" data-t="heroSubtitle"></p>
+    <a href="#cardapio" class="btn gold lg" id="heroOrder">Fazer pedido</a>
+  </div>
+  <div class="hero-img"><img id="heroImg" alt="Sobremesa Moisés Gourmet" width="600" height="600"></div>
+</section>
+
+<section id="cardapio" class="sec">
+  <h2 class="title">Nosso cardápio</h2>
+  <div class="filters" id="filters"></div>
+  <div id="menu"><p class="state">Carregando cardápio…</p></div>
+</section>
+
+<section id="sobre" class="sec alt">
+  <h2 class="title">Sobre nós</h2>
+  <p class="about" data-t="aboutText"></p>
+</section>
+
+<section id="contato" class="sec">
+  <h2 class="title">Contato</h2>
+  <div class="contact">
+    <a class="btn gold" id="waLink" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <p id="cAddr" hidden></p><p id="cHours" hidden></p>
+    <a id="cInsta" target="_blank" rel="noopener" hidden></a>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">© <span id="year"></span> <span data-t="companyName">Moisés Gourmet</span></footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Seu pedido">
+  <div class="drawer-h"><h2>Seu pedido</h2><button id="closeCart" class="x" aria-label="Fechar">×</button></div>
+  <div id="cartItems"></div>
+  <div class="totals">
+    <div><span>Subtotal</span><b id="subtotal">R$ 0,00</b></div>
+    <div id="feeRow" hidden><span>Taxa de entrega</span><b id="fee">R$ 0,00</b></div>
+    <div class="grand"><span>Total</span><b id="total">R$ 0,00</b></div>
+  </div>
+  <form id="orderForm" novalidate>
+    <h3>Seus dados</h3>
+    <label>Nome <input id="fName" required maxlength="100" autocomplete="name"></label>
+    <label>Telefone (com DDD) <input id="fPhone" required inputmode="tel" maxlength="20" autocomplete="tel" placeholder="(86) 99999-9999"></label>
+    <label>Forma de recebimento
+      <select id="fDelivery"><option value="retirada">Retirada</option><option value="entrega">Entrega</option></select>
+    </label>
+    <label id="addrWrap" hidden>Endereço de entrega <input id="fAddress" maxlength="200" autocomplete="street-address"></label>
+    <label>Observações <textarea id="fNotes" rows="3" maxlength="500" placeholder="Sabores, data/horário, etc."></textarea></label>
+    <p id="formMsg" class="msg" role="alert"></p>
+    <button class="btn gold lg" id="submitBtn" type="submit">Enviar pedido pelo WhatsApp</button>
+    <p class="hint">O pedido é registrado e a conversa do WhatsApp é aberta com o resumo. Valores e disponibilidade são combinados por lá.</p>
+  </form>
+</aside>
+<script type="module" src="script.js"></script>
+</body>
+</html>
