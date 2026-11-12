@@ -4,12 +4,12 @@
    sobrescreve este arquivo automaticamente no deploy. */
 window.APP_CONFIG = {
   firebase: {
-    apiKey: "COLE_AQUI_SUA_API_KEY",
-    authDomain: "SEU-PROJETO.firebaseapp.com",
-    projectId: "SEU-PROJETO",
-    appId: "COLE_AQUI_SEU_APP_ID"
+    apiKey: "AIzaSyBqkdS6pHnDs2gJnEVXliMNLfssS5C7EuA9",
+    authDomain: "teste-67ee5.firebaseapp.com",
+    projectId: "teste-67ee5",
+    appId: "1:374329071759:web:610fa44bc6395b8895f8fa"
   },
   whatsapp: "5586999294401",
-  adminEmail: "SEU-EMAIL-ADMIN@exemplo.com", // e-mail do usuário criado no Firebase (o painel pede só a senha)
-  imgbbKey: "COLE_AQUI_SUA_CHAVE_IMGBB"
+  adminEmail: "acessoadmin@gmail.com", // e-mail do usuário criado no Firebase (o painel pede só a senha)
+  imgbbKey: "86427cccd2a94fb42a0754ffd7f19e79"
 };
