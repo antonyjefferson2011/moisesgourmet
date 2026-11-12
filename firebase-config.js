@@ -10,5 +10,6 @@ window.APP_CONFIG = {
     appId: "COLE_AQUI_SEU_APP_ID"
   },
   whatsapp: "5586999294401",
+  adminEmail: "SEU-EMAIL-ADMIN@exemplo.com", // e-mail do usuário criado no Firebase (o painel pede só a senha)
   imgbbKey: "COLE_AQUI_SUA_CHAVE_IMGBB"
 };
