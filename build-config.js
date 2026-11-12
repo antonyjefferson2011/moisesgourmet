@@ -10,7 +10,7 @@ const cfg = {
     appId: e.FIREBASE_APP_ID || ""
   },
   whatsapp: e.WHATSAPP_NUMBER || "5586999294401",
-  adminEmail: e.ADMIN_EMAIL || "",
+  adminEmail: "admin@moisesgourmet.app",
   imgbbKey: e.IMGBB_API_KEY || ""
 };
 fs.writeFileSync("firebase-config.js", "window.APP_CONFIG = " + JSON.stringify(cfg, null, 2) + ";\n");
