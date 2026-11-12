@@ -19,8 +19,9 @@ else au.onAuthStateChanged(auth, async user => {
 
 $("#loginForm").addEventListener("submit", async e => {
   e.preventDefault(); lmsg("");
-  const em = $("#lEmail").value.trim(), pw = $("#lPass").value;
-  if (!em || !pw) return lmsg("Informe e-mail e senha.", false);
+  const em = (window.APP_CONFIG.adminEmail || "").trim(), pw = $("#lPass").value;
+  if (!em || em.startsWith("SEU-")) return lmsg("E-mail do administrador não configurado (adminEmail).", false);
+  if (!pw) return lmsg("Informe a senha.", false);
   $("#lBtn").disabled = true; $("#lBtn").textContent = "Entrando…";
   try { await au.signInWithEmailAndPassword(auth, em, pw); }
   catch (err) { lmsg(fbError(err), false); }
