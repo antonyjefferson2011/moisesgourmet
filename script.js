@@ -21,6 +21,8 @@ function applySettings() {
   show("#cHours", settings.hours && "🕒 " + settings.hours);
   const ig = (settings.instagram || "").replace(/^@/, "").replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/\/$/, "");
   show("#cInsta", ig && "Instagram @" + ig, "https://instagram.com/" + ig);
+  const ai = $("#aboutImg"); ai.hidden = !settings.aboutImage; if (settings.aboutImage) ai.src = settings.aboutImage;
+  ai.onerror = () => { ai.hidden = true; };
   updateCart();
 }
 
@@ -96,6 +98,7 @@ function updateCart() {
   const t = totals();
   $("#subtotal").textContent = brl(t.sub); $("#fee").textContent = brl(t.fee); $("#total").textContent = brl(t.total);
   $("#feeRow").hidden = !t.fee;
+  $("#fab").hidden = !L.length; $("#fabTotal").textContent = brl(t.total);
 }
 $("#cartItems").addEventListener("click", e => {
   const g = a => e.target.closest(`[data-${a}]`)?.dataset[a];
@@ -107,7 +110,7 @@ $("#cartItems").addEventListener("click", e => {
 });
 
 const open = v => { $("#drawer").classList.toggle("open", v); $("#overlay").classList.toggle("on", v); $("#drawer").setAttribute("aria-hidden", !v); document.body.style.overflow = v ? "hidden" : ""; };
-$("#openCart").onclick = () => open(true);
+$("#openCart").onclick = $("#fab").onclick = () => open(true);
 $("#closeCart").onclick = $("#overlay").onclick = () => open(false);
 $("#burger").onclick = () => { const n = $("#nav"); const o = n.classList.toggle("open"); $("#burger").setAttribute("aria-expanded", o); };
 $("#nav").addEventListener("click", e => { if (e.target.tagName === "A") $("#nav").classList.remove("open"); });

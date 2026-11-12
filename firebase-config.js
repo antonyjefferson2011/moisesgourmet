@@ -9,5 +9,6 @@ window.APP_CONFIG = {
     projectId: "SEU-PROJETO",
     appId: "COLE_AQUI_SEU_APP_ID"
   },
-  whatsapp: "5586999294401"
+  whatsapp: "5586999294401",
+  imgbbKey: "COLE_AQUI_SUA_CHAVE_IMGBB"
 };

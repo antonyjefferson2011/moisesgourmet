@@ -40,7 +40,7 @@
 
 <section id="sobre" class="sec alt">
   <h2 class="title">Sobre nós</h2>
-  <p class="about" data-t="aboutText"></p>
+  <div class="about-wrap"><img id="aboutImg" alt="Sobre a confeitaria" loading="lazy" hidden><p class="about" data-t="aboutText"></p></div>
 </section>
 
 <section id="contato" class="sec">
@@ -78,6 +78,7 @@
     <p class="hint">O pedido é registrado e a conversa do WhatsApp é aberta com o resumo. Valores e disponibilidade são combinados por lá.</p>
   </form>
 </aside>
+<button class="fab" id="fab" hidden>🛒 Ver pedido · <span id="fabTotal"></span></button>
 <script type="module" src="script.js"></script>
 </body>
 </html>

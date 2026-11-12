@@ -64,7 +64,10 @@
         <label>WhatsApp (somente números, com 55 + DDD) <input name="whatsapp" inputmode="numeric" maxlength="15" required></label>
         <label>Título do banner <input name="heroTitle" maxlength="120"></label>
         <label>Subtítulo do banner <textarea name="heroSubtitle" rows="2" maxlength="250"></textarea></label>
-        <label>Imagem do banner (URL) <input name="heroImage" type="url"></label>
+        <label>Imagem do banner (enviar do celular/computador) <input type="file" accept="image/*" data-up="heroImage"><small class="upst"></small><img class="pv" alt="" hidden></label>
+        <label>URL da imagem do banner <input name="heroImage" type="url"></label>
+        <label>Foto da seção "Sobre" (enviar do celular/computador) <input type="file" accept="image/*" data-up="aboutImage"><small class="upst"></small><img class="pv" alt="" hidden></label>
+        <label>URL da foto "Sobre" <input name="aboutImage" type="url"></label>
         <label>Texto "Sobre" <textarea name="aboutText" rows="4" maxlength="800"></textarea></label>
         <label>Endereço <input name="address" maxlength="150"></label>
         <label>Horário de atendimento <input name="hours" maxlength="100"></label>
@@ -84,7 +87,8 @@
     <label>Descrição <textarea name="description" rows="3" maxlength="300"></textarea></label>
     <label>Preço (R$) <input name="price" type="number" min="0.01" step="0.01" required></label>
     <label>Categoria <input name="category" list="catList" required maxlength="60"><datalist id="catList"><option value="Bolos de pote"><option value="Bombons de travessa"></datalist></label>
-    <label>Imagem (URL) <input name="imageUrl" type="url" placeholder="https://..."></label>
+    <label>Foto do produto (enviar do celular/computador) <input type="file" accept="image/*" data-up="imageUrl"><small class="upst"></small><img class="pv" alt="" hidden></label>
+    <label>ou cole a URL da imagem <input name="imageUrl" type="url" placeholder="https://..."></label>
     <label class="chk"><input name="active" type="checkbox" checked> Produto ativo (visível no site)</label>
     <p id="pMsg" class="msg" role="alert"></p>
     <div class="row"><button type="button" class="btn out" id="pCancel">Cancelar</button><button class="btn gold" id="pBtn" type="submit">Salvar</button></div>

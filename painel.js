@@ -1,4 +1,4 @@
-import { db, auth, configured, fs, au, esc, brl, toast, fbError, DEFAULT_SETTINGS } from "./firebase-init.js";
+import { db, auth, configured, fs, au, esc, brl, toast, fbError, DEFAULT_SETTINGS, uploadImage } from "./firebase-init.js";
 const { collection, doc, getDoc, setDoc, addDoc, updateDoc, deleteDoc, onSnapshot, query, orderBy, serverTimestamp } = fs;
 const $ = s => document.querySelector(s);
 const ST = { novo: "Novo", andamento: "Em andamento", concluido: "Concluído", cancelado: "Cancelado" };
@@ -94,7 +94,7 @@ function openDlg(p) {
   editId = p?.id || null; pf.reset(); $("#pMsg").textContent = "";
   $("#dlgTitle").textContent = p ? "Editar produto" : "Novo produto";
   if (p) { pf.name.value = p.name; pf.description.value = p.description || ""; pf.price.value = p.price; pf.category.value = p.category; pf.imageUrl.value = p.imageUrl || ""; pf.active.checked = !!p.active; }
-  dlg.showModal();
+  setPv(pf, "imageUrl", p?.imageUrl); $("#prodForm .upst").textContent = ""; dlg.showModal();
 }
 $("#newProd").onclick = () => openDlg();
 $("#pCancel").onclick = () => dlg.close();
@@ -139,7 +139,16 @@ $("#ordList").addEventListener("change", async e => {
 
 /* ---------- Configurações ---------- */
 const cf = $("#cfgForm");
-function fillCfg() { ["companyName", "whatsapp", "heroTitle", "heroSubtitle", "heroImage", "aboutText", "address", "hours", "instagram", "deliveryFee"].forEach(k => cf[k].value = settings[k] ?? ""); }
+const setPv = (form, name, url) => { const pv = form.querySelector(`[data-up="${name}"]`)?.parentElement.querySelector(".pv"); if (pv) { pv.hidden = !url; if (url) pv.src = url; } };
+document.addEventListener("change", async e => {
+  const t = e.target; if (!t.matches?.("[data-up]") || !t.files[0]) return;
+  const st = t.parentElement.querySelector(".upst"); st.textContent = "Enviando imagem…"; t.disabled = true;
+  try { const url = await uploadImage(t.files[0]); t.form[t.dataset.up].value = url; setPv(t.form, t.dataset.up, url); st.textContent = "Imagem enviada ✔ (clique em Salvar)"; }
+  catch (err) { st.textContent = err.message; }
+  t.disabled = false; t.value = "";
+});
+function fillCfg() {
+  setPv(cf, "heroImage", settings.heroImage); setPv(cf, "aboutImage", settings.aboutImage); ["companyName", "whatsapp", "heroTitle", "heroSubtitle", "heroImage", "aboutImage", "aboutText", "address", "hours", "instagram", "deliveryFee"].forEach(k => cf[k].value = settings[k] ?? ""); }
 cf.addEventListener("submit", async e => {
   e.preventDefault();
   const m = $("#cMsg"); m.className = "msg bad";

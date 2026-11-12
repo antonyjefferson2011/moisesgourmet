@@ -9,7 +9,8 @@ const cfg = {
     projectId: e.FIREBASE_PROJECT_ID || "",
     appId: e.FIREBASE_APP_ID || ""
   },
-  whatsapp: e.WHATSAPP_NUMBER || "5586999294401"
+  whatsapp: e.WHATSAPP_NUMBER || "5586999294401",
+  imgbbKey: e.IMGBB_API_KEY || ""
 };
 fs.writeFileSync("firebase-config.js", "window.APP_CONFIG = " + JSON.stringify(cfg, null, 2) + ";\n");
 console.log("firebase-config.js gerado.");

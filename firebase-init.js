@@ -23,8 +23,10 @@ export const fbError = e => {
     "unavailable": "Sem conexão com o servidor. Tente novamente.",
     "auth/invalid-credential": "E-mail ou senha incorretos.", "auth/wrong-password": "E-mail ou senha incorretos.",
     "auth/user-not-found": "E-mail ou senha incorretos.", "auth/too-many-requests": "Muitas tentativas. Aguarde e tente novamente.",
-    "auth/invalid-email": "E-mail inválido.", "auth/network-request-failed": "Falha de rede." };
-  return m[e && e.code] || ("Erro: " + (e && e.message || e));
+    "auth/invalid-email": "E-mail inválido.", "auth/network-request-failed": "Falha de rede.",
+    "auth/unauthorized-domain": "Domínio não autorizado. Adicione o domínio da Vercel em Authentication > Configurações > Domínios autorizados.",
+    "auth/operation-not-allowed": "Login por e-mail/senha não está ativado no Firebase Authentication." };
+  return m[e && e.code] || ("Erro (" + (e && e.code || "?") + "): " + (e && e.message || e));
 };
 export const DEFAULT_SETTINGS = {
   companyName: "Moisés Gourmet", whatsapp: (c && c.whatsapp) || "5586999294401",
@@ -34,3 +36,15 @@ export const DEFAULT_SETTINGS = {
   aboutText: "A Moisés Gourmet nasceu da paixão por confeitaria. Cada bolo de pote e cada bombom de travessa é preparado artesanalmente, com ingredientes de qualidade e sabor marcante.",
   address: "", hours: "", instagram: "", deliveryFee: 0
 };
+
+export async function uploadImage(file) {
+  const k = c && c.imgbbKey;
+  if (!k || k.startsWith("COLE_")) throw new Error("Chave do ImgBB não configurada (imgbbKey).");
+  if (!file.type.startsWith("image/")) throw new Error("Selecione um arquivo de imagem.");
+  if (file.size > 16 * 1024 * 1024) throw new Error("Imagem maior que 16 MB.");
+  const fd = new FormData(); fd.append("image", file);
+  const r = await fetch("https://api.imgbb.com/1/upload?key=" + encodeURIComponent(k), { method: "POST", body: fd });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok || !j.success) throw new Error((j.error && j.error.message) || "Falha no upload da imagem.");
+  return j.data.display_url || j.data.url;
+}
