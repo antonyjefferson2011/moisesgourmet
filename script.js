@@ -15,7 +15,7 @@ function applySettings() {
   const img = $("#heroImg"); img.src = settings.heroImage || DEFAULT_SETTINGS.heroImage;
   img.onerror = () => { img.style.display = "none"; };
   const num = String(settings.whatsapp).replace(/\D/g, "");
-  ["#waLink", "#heroWa", "#fWa", "#waFloat"].forEach(i => $(i).href = "https://wa.me/" + num);
+  ["#waLink", "#fWa", "#waFloat"].forEach(i => $(i).href = "https://wa.me/" + num);
   const show = (id, txt, href) => { const e = $(id); e.hidden = !txt; if (txt) { e.textContent = txt; if (href) e.href = href; } };
   show("#cAddr", settings.address && "📍 " + settings.address);
   show("#cHours", settings.hours && "🕒 " + settings.hours);
