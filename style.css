@@ -116,3 +116,4 @@ dialog{max-height:92vh;overflow:auto}
  .admin .tabs button{flex:1;padding:10px 2px;font-size:.78rem;border-radius:12px}
  .admin .panel{padding-bottom:100px}.admin .toast{bottom:90px}
 }
+@media(max-width:800px){.admin .hdr nav.tabs{display:flex;flex-direction:row;top:auto;bottom:0;position:fixed;padding:8px 6px calc(8px + env(safe-area-inset-bottom));gap:4px}}
