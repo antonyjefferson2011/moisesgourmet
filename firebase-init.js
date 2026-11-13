@@ -40,6 +40,7 @@ export const DEFAULT_SETTINGS = {
 export async function uploadImage(file) {
   const k = c && c.imgbbKey;
   if (!k || k.startsWith("COLE_")) throw new Error("Chave do ImgBB não configurada (imgbbKey).");
+  if (!/^[a-f0-9]{32}$/i.test(k)) throw new Error("Chave do ImgBB inválida: o site recebeu \"" + k.slice(0, 20) + "\". A chave real tem 32 letras/números.");
   if (!file.type.startsWith("image/")) throw new Error("Selecione um arquivo de imagem.");
   if (file.size > 16 * 1024 * 1024) throw new Error("Imagem maior que 16 MB.");
   const fd = new FormData(); fd.append("image", file);
