@@ -1,1 +1,5 @@
-{ "buildCommand": "node build-config.js", "outputDirectory": "." }
+{
+  "buildCommand": "node build-config.js",
+  "outputDirectory": ".",
+  "headers": [{ "source": "/(.*)", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }]
+}
