@@ -10,5 +10,5 @@ window.APP_CONFIG = {
   whatsapp: "5586999294401",
   // E-mail interno (não precisa existir de verdade). O painel pede só a senha.
   adminEmail: "admin@moisesgourmet.app",
-  imgbbKey: "86427cccd2a94fb42a0754ffd7f19e79"
+  imgbbKey: "297f89c06ba3098a98c55de5cb4e4e82"
 };
