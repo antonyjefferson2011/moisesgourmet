@@ -31,7 +31,7 @@ export const fbError = e => {
 export const DEFAULT_SETTINGS = {
   companyName: "Moisés Gourmet", whatsapp: (c && c.whatsapp) || "5586999294401",
   heroTitle: "Doces artesanais que conquistam no primeiro pedaço",
-  heroSubtitle: "Bolos de pote e bombons de travessa feitos com ingredientes selecionados e muito carinho.",
+  heroSubtitle: "Bolos de pote e bolos de travessa feitos com ingredientes selecionados e muito carinho.",
   heroImage: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80",
   aboutText: "A Moisés Gourmet nasceu da paixão por confeitaria. Cada bolo de pote e cada bombom de travessa é preparado artesanalmente, com ingredientes de qualidade e sabor marcante.",
   address: "", hours: "", instagram: "", deliveryFee: 0
