@@ -1,4 +1,4 @@
-import { db, configured, fs, esc, brl, toast, fbError, DEFAULT_SETTINGS } from "./firebase-init.js";
+import { db, configured, fs, esc, brl, toast, fbError, DEFAULT_SETTINGS } from "./firebase-init.js?v=3";
 const { collection, query, where, getDocs, getDoc, doc, addDoc, serverTimestamp } = fs;
 const $ = s => document.querySelector(s);
 
