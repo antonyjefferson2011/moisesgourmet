@@ -34,7 +34,7 @@ function renderDash() {
   const days = [...Array(7)].map((_, i) => { const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - (6 - i)); return d; });
   const cnt = days.map(d => orders.filter(o => dt(o).toDateString() === d.toDateString()).length);
   const mx = Math.max(1, ...cnt);
-  $("#chart7").innerHTML = days.map((d, i) => `<div class="bcol"><span>${cnt[i]}</span><div class="bar-v" style="height:${cnt[i] / mx * 100}%"></div><small>${d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}</small></div>`).join("");
+  $("#chart7").innerHTML = days.map((d, i) => `<div class="bcol"><span>${cnt[i]}</span><div class="bar-v" style="height:${Math.max(2, Math.round(cnt[i] / mx * 110))}px"></div><small>${d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}</small></div>`).join("");
 
   const mst = Math.max(1, ...Object.keys(ST).map(k => orders.filter(o => o.status === k).length));
   $("#chartSt").innerHTML = Object.keys(ST).map(k => { const n = orders.filter(o => o.status === k).length; return `<div class="hrow"><span>${ST[k]}</span><div><i class="s-${k}" style="width:${n / mst * 100}%"></i></div><b>${n}</b></div>`; }).join("");
