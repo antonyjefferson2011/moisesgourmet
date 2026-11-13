@@ -84,3 +84,7 @@ dialog{max-height:92vh;overflow:auto}
  .oh{flex-direction:column}.of>*{flex:1}.bar{flex-wrap:wrap}.row .btn{flex:1}.hrow{grid-template-columns:85px 1fr 26px}
 }
 [hidden]{display:none!important}
+.two>*,.box,.stat{min-width:0}.box{overflow:hidden}
+.bars{height:170px;overflow:hidden}.bcol{height:auto;min-width:0}.bcol .bar-v{width:70%;max-width:40px}
+.bcol small{font-size:.68rem;white-space:nowrap}
+.two{grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
