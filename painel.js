@@ -1,4 +1,4 @@
-import { db, auth, configured, fs, au, esc, brl, toast, fbError, DEFAULT_SETTINGS, uploadImage } from "./firebase-init.js";
+import { db, auth, configured, fs, au, esc, brl, toast, fbError, DEFAULT_SETTINGS, uploadImage } from "./firebase-init.js?v=3";
 const { collection, doc, getDoc, setDoc, addDoc, updateDoc, deleteDoc, onSnapshot, query, orderBy, serverTimestamp } = fs;
 const $ = s => document.querySelector(s);
 const ST = { novo: "Novo", andamento: "Em andamento", concluido: "Concluído", cancelado: "Cancelado" };
