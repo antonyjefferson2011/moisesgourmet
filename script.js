@@ -15,7 +15,7 @@ function applySettings() {
   const img = $("#heroImg"); img.src = settings.heroImage || DEFAULT_SETTINGS.heroImage;
   img.onerror = () => { img.style.display = "none"; };
   const num = String(settings.whatsapp).replace(/\D/g, "");
-  $("#waLink").href = "https://wa.me/" + num;
+  ["#waLink", "#heroWa", "#fWa", "#waFloat"].forEach(i => $(i).href = "https://wa.me/" + num);
   const show = (id, txt, href) => { const e = $(id); e.hidden = !txt; if (txt) { e.textContent = txt; if (href) e.href = href; } };
   show("#cAddr", settings.address && "📍 " + settings.address);
   show("#cHours", settings.hours && "🕒 " + settings.hours);
@@ -164,3 +164,11 @@ $("#orderForm").addEventListener("submit", async e => {
 applySettings();
 if (configured) loadSettings();
 loadProducts();
+
+/* ---------- Animação de entrada ao rolar ---------- */
+const els = document.querySelectorAll(".sec .title,.perk,.step,.about-wrap,.contact");
+els.forEach(e => e.classList.add("rv"));
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), { threshold: .15 });
+  els.forEach(e => io.observe(e));
+} else els.forEach(e => e.classList.add("in"));
