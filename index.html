@@ -8,7 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.png" type="image/png">
+<meta property="og:title" content="Moisés Gourmet — Bolos de pote e bombons de travessa">
+<meta property="og:description" content="Doces artesanais. Escolha no cardápio e finalize pelo WhatsApp.">
+<meta name="theme-color" content="#3b2218">
+<link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
 <link rel="stylesheet" href="style.css?v=3">
 <script src="firebase-config.js?v=3"></script>
 </head>
@@ -28,15 +31,32 @@
     <p class="eyebrow">Confeitaria artesanal</p>
     <h1 data-t="heroTitle"></h1>
     <p class="lead" data-t="heroSubtitle"></p>
-    <a href="#cardapio" class="btn gold lg" id="heroOrder">Fazer pedido</a>
+    <div class="hero-btns"><a href="#cardapio" class="btn gold lg" id="heroOrder">Fazer pedido</a><a class="btn out lg" id="heroWa" target="_blank" rel="noopener">WhatsApp</a></div>
+    <p class="tags"><span>🎂 Bolos de pote</span><span>🍫 Bombons de travessa</span></p>
   </div>
-  <div class="hero-img"><img id="heroImg" alt="Sobremesa Moisés Gourmet" width="600" height="600"></div>
+  <div class="hero-img"><div class="ring"></div><img id="heroImg" alt="Sobremesa Moisés Gourmet" width="600" height="600"><span class="float-badge">✨ Artesanal</span></div>
+</section>
+
+<section class="perks">
+  <div class="perk"><b>🍫</b><span>Feito artesanalmente</span></div>
+  <div class="perk"><b>😋</b><span>Sabores marcantes</span></div>
+  <div class="perk"><b>📲</b><span>Pedido rápido pelo WhatsApp</span></div>
+  <div class="perk"><b>🚚</b><span>Retirada ou entrega</span></div>
 </section>
 
 <section id="cardapio" class="sec">
   <h2 class="title">Nosso cardápio</h2>
   <div class="filters" id="filters"></div>
   <div id="menu"><p class="state">Carregando cardápio…</p></div>
+</section>
+
+<section class="sec how">
+  <h2 class="title">Como pedir</h2>
+  <div class="steps">
+    <div class="step"><i>1</i><h4>Escolha</h4><p>Veja o cardápio e adicione os doces ao pedido.</p></div>
+    <div class="step"><i>2</i><h4>Preencha</h4><p>Informe seus dados e a forma de recebimento.</p></div>
+    <div class="step"><i>3</i><h4>Finalize</h4><p>Enviamos o resumo no WhatsApp para combinar tudo.</p></div>
+  </div>
 </section>
 
 <section id="sobre" class="sec alt">
@@ -54,7 +74,15 @@
 </section>
 </main>
 
-<footer class="ftr">© <span id="year"></span> <span data-t="companyName">Moisés Gourmet</span></footer>
+<footer class="ftr">
+  <div class="ftr-in">
+    <div><a class="logo" href="#inicio"><span class="logo-mark">M</span><span data-t="companyName">Moisés Gourmet</span></a><p>Bolos de pote e bombons de travessa feitos com carinho.</p></div>
+    <div class="fl"><a href="#cardapio">Cardápio</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></div>
+    <div class="fl"><a id="fWa" target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+  <small>© <span id="year"></span> <span data-t="companyName">Moisés Gourmet</span>. Todos os direitos reservados.</small>
+</footer>
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">💬</a>
 
 <div class="overlay" id="overlay"></div>
 <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Seu pedido">
