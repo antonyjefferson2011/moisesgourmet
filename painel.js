@@ -4,11 +4,6 @@ const $ = s => document.querySelector(s);
 const ST = { novo: "Novo", andamento: "Em andamento", concluido: "Concluído", cancelado: "Cancelado" };
 let products = [], orders = [], unsubs = [], editId = null, settings = { ...DEFAULT_SETTINGS };
 
-/* ---------- Acesso direto (sem login) ---------- */
-$("#login").hidden = true; $("#logout").hidden = true;
-if (!configured) { $("#app").hidden = false; document.querySelector(".panel").innerHTML = '<p class="state err">Firebase não configurado. Edite firebase-config.js.</p>'; }
-else { $("#app").hidden = false; start(); }
-
 /* ---------- Abas ---------- */
 $("#tabs").addEventListener("click", e => {
   const b = e.target.closest("[data-tab]"); if (!b) return;
@@ -143,3 +138,8 @@ cf.addEventListener("submit", async e => {
   catch (err) { m.textContent = fbError(err); }
   $("#cBtn").disabled = false; $("#cBtn").textContent = "Salvar configurações";
 });
+
+/* ---------- Acesso direto (sem login) ---------- */
+$("#login").hidden = true; $("#logout").hidden = true;
+if (!configured) { $("#app").hidden = false; document.querySelector(".panel").innerHTML = '<p class="state err">Firebase não configurado. Edite firebase-config.js.</p>'; }
+else { $("#app").hidden = false; start(); }
