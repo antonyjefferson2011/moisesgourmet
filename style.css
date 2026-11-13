@@ -88,3 +88,26 @@ dialog{max-height:92vh;overflow:auto}
 .bars{height:170px;overflow:hidden}.bcol{height:auto;min-width:0}.bcol .bar-v{width:70%;max-width:40px}
 .bcol small{font-size:.68rem;white-space:nowrap}
 .two{grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+/* ===== visual premium ===== */
+.hdr{box-shadow:0 2px 14px rgba(0,0,0,.25)}
+.hero{position:relative;overflow:hidden;padding:80px 6%;background:radial-gradient(circle at 85% 15%,#f6dcae 0,transparent 45%),radial-gradient(circle at 5% 90%,#ecd3a6 0,transparent 40%),var(--cream)}
+.hero:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;border:2px dashed rgba(196,138,63,.35);right:-120px;top:-120px}
+.hero h1{letter-spacing:-.5px}.hero-btns{display:flex;gap:12px;flex-wrap:wrap}.btn.out.lg{color:var(--choc);border-color:var(--choc)}.btn.out.lg:hover{background:var(--choc);color:var(--cream)}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.tags span{background:#fff;border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:500;box-shadow:0 2px 10px rgba(59,34,24,.1)}
+.hero-img{position:relative}.ring{position:absolute;inset:-14px;border-radius:50%;border:2px solid var(--gold);opacity:.5;animation:spin 30s linear infinite;border-style:dotted}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float-badge{position:absolute;left:4%;bottom:10%;background:var(--choc);color:var(--gold);padding:10px 18px;border-radius:999px;font-weight:600;box-shadow:var(--sh)}
+.perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;background:var(--choc);padding:22px 6%}
+.perk{display:flex;align-items:center;gap:12px;color:var(--cream);font-weight:500}.perk b{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:rgba(217,164,65,.18);font-size:1.4rem;flex:none}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+.title{font-size:2.3rem}.card{border-radius:20px}.ph img{transition:transform .6s}.card:hover .ph img{transform:scale(1.08)}
+.card:hover{box-shadow:0 18px 40px rgba(59,34,24,.2)}.cf b{background:var(--cream);padding:4px 12px;border-radius:999px}
+.cat{display:flex;align-items:center;gap:12px}.cat:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.step{background:#fff;border-radius:20px;padding:26px;text-align:center;box-shadow:var(--sh)}.step i{display:grid;place-items:center;width:46px;height:46px;margin:0 auto 12px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--caramel));color:var(--choc);font:700 1.2rem "Playfair Display",serif}
+.step h4{color:var(--choc);font-size:1.15rem}.step p{font-size:.9rem;color:#6b5648}
+.sec.alt{background:linear-gradient(180deg,var(--cream2),var(--cream))}
+.ftr{text-align:left;padding:40px 6% 20px}.ftr-in{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;margin-bottom:22px}.ftr p{opacity:.8;font-size:.9rem;margin-top:10px}
+.fl{display:flex;flex-direction:column;gap:8px}.fl a{color:var(--cream);opacity:.85;text-decoration:none}.fl a:hover{color:var(--gold);opacity:1}.ftr small{display:block;text-align:center;opacity:.6;border-top:1px solid rgba(255,255,255,.15);padding-top:16px}
+.wa-float{position:fixed;right:16px;bottom:18px;z-index:34;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:1.7rem;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.35);transition:.25s}.wa-float:hover{transform:scale(1.1)}
+@media(max-width:800px){.ftr-in{grid-template-columns:1fr}.hero{padding:44px 5%}.wa-float{bottom:84px;width:50px;height:50px}.ring{inset:-8px}.float-badge{left:0}.title{font-size:1.8rem}}
