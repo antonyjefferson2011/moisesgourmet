@@ -11,7 +11,7 @@ let activeCat = "Todos";
 /* ---------- Configurações do site ---------- */
 function applySettings() {
   document.querySelectorAll("[data-t]").forEach(el => { el.textContent = settings[el.dataset.t] || ""; });
-  document.title = settings.companyName + " — Bolos de pote e bombons de travessa";
+  document.title = settings.companyName + " — Bolos de pote e bolos de travessa";
   const img = $("#heroImg"); img.src = settings.heroImage || DEFAULT_SETTINGS.heroImage;
   img.onerror = () => { img.style.display = "none"; };
   const num = String(settings.whatsapp).replace(/\D/g, "");
@@ -35,7 +35,7 @@ async function loadSettings() {
 }
 
 /* ---------- Cardápio ---------- */
-const ORDER = ["Bolos de pote", "Bombons de travessa"];
+const ORDER = ["Bolos de pote", "Bolos de travessa"];
 async function loadProducts() {
   const menu = $("#menu");
   if (!configured) { menu.innerHTML = '<p class="state err">Firebase não configurado. Edite o arquivo firebase-config.js (veja as instruções).</p>'; return; }
