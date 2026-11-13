@@ -111,3 +111,8 @@ dialog{max-height:92vh;overflow:auto}
 .fl{display:flex;flex-direction:column;gap:8px}.fl a{color:var(--cream);opacity:.85;text-decoration:none}.fl a:hover{color:var(--gold);opacity:1}.ftr small{display:block;text-align:center;opacity:.6;border-top:1px solid rgba(255,255,255,.15);padding-top:16px}
 .wa-float{position:fixed;right:16px;bottom:18px;z-index:34;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:1.7rem;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.35);transition:.25s}.wa-float:hover{transform:scale(1.1)}
 @media(max-width:800px){.ftr-in{grid-template-columns:1fr}.hero{padding:44px 5%}.wa-float{bottom:84px;width:50px;height:50px}.ring{inset:-8px}.float-badge{left:0}.title{font-size:1.8rem}}
+@media(max-width:800px){
+ .admin .tabs{position:fixed;bottom:0;left:0;right:0;z-index:60;width:100%;margin:0;order:0;background:var(--choc);padding:8px 6px calc(8px + env(safe-area-inset-bottom));gap:4px;overflow:visible;box-shadow:0 -4px 16px rgba(0,0,0,.3)}
+ .admin .tabs button{flex:1;padding:10px 2px;font-size:.78rem;border-radius:12px}
+ .admin .panel{padding-bottom:100px}.admin .toast{bottom:90px}
+}
